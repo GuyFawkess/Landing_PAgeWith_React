@@ -1,19 +1,27 @@
 import React from "react";
+import propTypes from "prop-types";
 
 
-const Jumbotron = () => {
+const Jumbotron = (props) => {
 
     return (
 
         <div className="jumbotron bg-light p-5">
-            <h1 className="display-4">Hello, world!</h1>
-            <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                <a className="btn btn-primary btn-lg mt-3" href="#" role="button">Learn more</a>
+            <h1 className="display-4">{props.title}</h1>
+            <p className="lead">{props.description}</p>
+                <p>{props.textBold}</p>
+                <a className="btn btn-primary btn-lg mt-3" href="#" role="button">{props.linkLabel}</a>
         </div>
 
 
     )
+}
+
+Jumbotron.propTypes = {
+    title: propTypes.string,
+    description: propTypes.string,
+    textBold: propTypes.string,
+    linkLabel: propTypes.string
 }
 
 export default Jumbotron;

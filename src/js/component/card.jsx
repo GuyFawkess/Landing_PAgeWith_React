@@ -1,16 +1,26 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const Card = () => {
+
+const Card = (props) => {
     return (
         <div className="card d-flex flex-column align-items-center text-center">
-            <img src="https://picsum.photos/200" className="card-img-top" alt="..." />
+            <img src={props.imgUrl} className="card-img-top" alt="..." />
             <div className="card-body d-flex flex-column justify-content-center">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                <h5 className="card-title">{props.cardTitle}</h5>
+                <p className="card-text">{props.cardText}</p>
+                <a href={props.linkUrl} className="btn btn-primary">{props.linkLabel}</a>
             </div>
         </div>
     );
 };
+
+Card.propType = {
+    cardTitle: PropTypes.string,
+    imgUrl: PropTypes.string,
+    cardText: PropTypes.string,
+    linkLabel: PropTypes.string,
+    linkUrl: PropTypes.string
+}
 
 export default Card;
